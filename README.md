@@ -11,7 +11,7 @@ The project consists of three main sections:
 
 This README file will briefly describe the steps to launch the EKS cluster, the observability system, and the web application.
 
-URL for the public GitHub repository: [https://github.com/caroldelwing/WCD-DevOps-FinalCapstone]
+URL for the public GitHub repository: https://github.com/caroldelwing/WCD-DevOps-FinalCapstone
 
 ## Table of contents
 
@@ -71,10 +71,10 @@ cd WCD-DevOps-FinalCapstone
 https://docs.github.com/pt/actions/security-guides/encrypted-secrets
 
 Make sure to name your secrets exactly as below, and fill them with the values of your credentials (AWS access key and DockerHub token, which need to be created if you don't have one already):
-    - DOCKERHUB_TOKEN
-    - DOCKERHUB_USERNAME
-    - AWS_ACCESS_KEY_ID
-    - AWS_SECRET_ACCESS_KEY
+- `DOCKERHUB_TOKEN`
+- `DOCKERHUB_USERNAME`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
 
 ## Usage
 
