@@ -1,11 +1,11 @@
 # Final Capstone DevOps Project - End-to-end DevOps Pipeline
 
-This project builds an end-to-end DevOps pipeline using core technologies such as AWS, Docker, Kubernetes, Terraform, Prometheus, Loki, Grafana, and GitHub Actions. This pipeline is used to deploy a multi container web application that comprises a MongoDB database and a Nodejs API server, which exposes endpoints so users can send HTTP requests and get a response. 
+This project builds an end-to-end DevOps pipeline using core technologies such as AWS, Docker, Kubernetes, Terraform, Prometheus, Loki, Grafana, and GitHub Actions. This pipeline is used to deploy a multi-container web application that comprises a MongoDB database and a Nodejs API server, which exposes endpoints so users can send HTTP requests and get a response. 
 
 The project consists of three main sections:
 - Section 1: Terraform code to deploy a functional and multi-node AWS EKS Cluster.
-- Section 2: Terraform code to deploy a complete observability stack (Prometheus, Loki, Grafana) into the EKS Cluser using Helm Charts.
-- Section 3: GitHub Actions CICD Pipeline responsible for code checkout, test, build, and deploy stages of the web application in the EKS Cluster. The pipeline can be triggered manually or by pushes on the GitHub repo. The test step tests the integration of the Dockerfiles using a Docker-compose file, while the build step is responsible for building the Docker Images and pushing them to Docker Hub. At last, the deploy stage will connect to the EKS Cluster and deploy the web application using the recently created Docker Images.
+- Section 2: Terraform code to deploy a complete observability stack (Prometheus, Loki, Grafana) into the EKS Cluster using Helm Charts.
+- Section 3: GitHub Actions CICD Pipeline responsible for code checkout, test, build, and deploy stages of the web application in the EKS Cluster. The pipeline can be triggered manually or by pushes on the GitHub repo. The test step tests the integration of the Dockerfiles using a Docker-compose file, while the build step is responsible for building the Docker Images and pushing them to Docker Hub. At last, the deployment stage will connect to the EKS Cluster and deploy the web application using the recently created Docker Images.
 
 ![Diagram of Final Project 1](finalproject01.jpg)
 
@@ -61,7 +61,7 @@ Default output format [None]: just press enter
 Fork this Repository:
 Click the "Fork" button at the top-right corner of the repository page. This will create a copy of the repository under your GitHub account.
 
-- In your terminal, clone the forked repository and navigate to the project 8 folder (replace the link below with the link to your repo):
+- In your terminal, clone the forked repository and navigate to the WCD-DevOps-FinalCapstone folder (replace the link below with the link to your repo):
 ```sh
 git clone https://github.com/caroldelwing/WCD-DevOps-FinalCapstone.git
 cd WCD-DevOps-FinalCapstone
@@ -93,7 +93,7 @@ aws eks update-kubeconfig --region us-east-1 --name eks-wcd-final
 ```
 
 - Part 2: deploy a complete observability stack in the EKS Cluster with Terraform:
-    Navigate to the observability folder and execute the following Terraform comands:
+    Navigate to the observability folder and execute the following Terraform commands:
 ```sh
 cd ../observability
 terraform init
@@ -105,7 +105,7 @@ Access Grafana using port-forwarding. Execute the command below and then type ht
 ```sh
 kubectl port-forward service/kube-prometheus-stack-grafana 8080:80 -n monitoring
 ```
-The Kube-Prometheus-Stack has many dashboards ready to monitor your cluster; you can access them in the section "Dashboards" of Grafana. I also suggest you import the following dashboards: 15757, 15758, 15759, and 15760 for a better visualization of your cluster metrics. 
+The Kube-Prometheus-Stack has many dashboards ready to monitor your cluster; you can access them in the section "Dashboards" of Grafana. I also suggest you import the following dashboards: 15757, 15758, 15759, and 15760 for better visualization of your cluster metrics. 
 Lastly, add Loki as Data Source in Grafana, using the URL http://loki:3100. Then, import the dashboard ID 12611 for logs visualization.
 
 - Part 3:
@@ -142,13 +142,13 @@ For the observability stack, access Grafana again using port-forwarding:
 ```sh
 kubectl port-forward service/kube-prometheus-stack-grafana 8080:80 -n monitoring
 ```
-- Open the dashboards you imported previously and have fun! Below you can find an example showing the pods of the recently deployed web application:
+- Open the dashboards you imported previously and have fun! Below, you can find an example showing the pods of the recently deployed web application:
 ![Diagram of Final Project 2](finalproject02.jpg)
 
 - Don't forget to delete everything once you're finished to avoid unnecessary costs.
 
 ## Diagram
-Below you can check diagrams of the CICD pipeline integrated with the cloud architecture, as well as a more detailed diagram of the cloud components.
+Below, you can check diagrams of the CICD pipeline integrated with the cloud architecture, as well as a more detailed diagram of the cloud components.
 
 ![Diagram of Final Project 3](finalproject03.jpg)
 
